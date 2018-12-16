@@ -1,14 +1,12 @@
-# bar v.1.0.0
+# bar v.1.0.1
 
-The ####vtest d3 tool to represent data as a bar
+The ### test2d3 bar builder
 
 ## Installation
 
 Using npm:
 
-```shell
-$ npm i ...
-```
+$ npm i test2d3
 
 ## Support
 

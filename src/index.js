@@ -74,11 +74,15 @@
             graphElement.selectAll('*').remove();
         }
 
+        
+        var max = d3.max(graph);
+        var heightMax = Math.max(max, config.height);
+        var y = heightMax - config.marginTop;        
+
         container = graphElement
             .attr('width', config.width)
-            .attr('height', config.height)        
-            .append('g')
-            .attr('transform', 'translate(' + config.marginLeft + ',' + config.marginTop + ')');            
+            .attr('height', heightMax + config.marginTop)        
+            .append('g');            
 
         container.selectAll('rect')
             .data(graph)
@@ -87,25 +91,20 @@
             .attr('width', config.rectWidth)
             .attr('height', function(d) { return d; })
             .attr('fill', config.color)
-            .attr('x', function(d, i) { return i * (config.rectWidth + config.shift) })
-            .attr('dy', function(d, i){ return (-1) * d; })
-
-            var y = 0;
+            .attr('x', function(d, i) { return config.marginLeft + (i * config.rectWidth) + (i + 1) * config.shift; })           
+            .attr('y', function(d, i){ return y - d; });
+            
 
             container.selectAll('line')
             .data([1])
             .enter()
             .append('line')            
             .attr('stroke', '#555')
-            .attr('x1', (config.rectWidth) * (-1))
+            .attr('x1', config.marginLeft)            
             .attr('y1', y)
-            .attr('x2', config.marginLeft + (graph.length - 1) * (config.rectWidth + config.shift))
+            .attr('x2', config.marginLeft + graph.length * (config.rectWidth + config.shift) + config.shift)
             .attr('y2', y);
-            
-
-    
     }
-
     /*--------------------------------------------------------------------------*/
 
     return LinearGraphData;
