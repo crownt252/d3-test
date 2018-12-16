@@ -1,5 +1,5 @@
 {
-  "name": "@bar/test2",
+  "name": "test2d3",
   "version": "1.0.0",
   "description": "test npm package",
   "main": "index.js",
@@ -10,6 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/crownt252/d3-test.git"
   },
-  "author": "",
+  "author": "me",
   "license": "ISC"
 }
