@@ -1,6 +1,6 @@
-# UBO graph v.1
+# bar v.1.0.0
 
-The ####test d3#### tool to represent data as a bar
+The ####vtest d3 tool to represent data as a bar
 
 ## Installation
 
